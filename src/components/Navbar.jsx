@@ -1,25 +1,14 @@
-export default function Navbar({ setPage, current }) {
-  const tabs = [
-    { key: "clock", label: "Clock" },
-    { key: "stopwatch", label: "Stopwatch" },
-    { key: "timer", label: "Timer" },
-  ];
+// src/components/Navbar.jsx
+import { Link } from "react-router-dom";
 
+function Navbar() {
   return (
-    <nav className="flex space-x-6 bg-white/10 backdrop-blur-lg px-6 py-3 rounded-2xl shadow-lg mt-4">
-      {tabs.map((tab) => (
-        <button
-          key={tab.key}
-          onClick={() => setPage(tab.key)}
-          className={`uppercase tracking-wide font-semibold transition-all ${
-            current === tab.key
-              ? "text-cyan-400 border-b-2 border-cyan-400 pb-1"
-              : "text-gray-400 hover:text-white"
-          }`}
-        >
-          {tab.label}
-        </button>
-      ))}
+    <nav className="bg-gray-800 p-4 flex justify-center gap-6 shadow-md">
+      <Link to="/" className="hover:text-yellow-400 transition">Clock</Link>
+      <Link to="/stopwatch" className="hover:text-yellow-400 transition">Stopwatch</Link>
+      <Link to="/timer" className="hover:text-yellow-400 transition">Timer</Link>
     </nav>
   );
 }
+
+export default Navbar;
